@@ -11,7 +11,7 @@
 <script setup>
 import { ref } from "vue";
 
-const counter = ref(0);
+const counter = ref(1);
 
 const increment = () => {
   counter.value++;
