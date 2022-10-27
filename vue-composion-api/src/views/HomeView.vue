@@ -2,24 +2,33 @@
   <div class="home">
     <div class="lol">
       <button @click="decrement()" class="btn">-</button>
-      <span class="counter">{{ counter }}</span>
+      <span class="counter">{{ counterData.counter }}</span>
       <button @click="increment()" class="btn">+</button>
+      <p>This data is {{ oddOrEven }}</p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { reactive, computed } from "vue";
 
-const counter = ref(1);
+const counterData = reactive({
+  counter: 0,
+});
 
 const increment = () => {
-  counter.value++;
+  counterData.counter++;
 };
 const decrement = () => {
-  counter.value--;
+  counterData.counter--;
 };
+
+const oddOrEven = computed(() => {
+  if (counterData.counter % 2 === 0) return "even";
+  return "odd";
+});
 </script>
+
 <style scoped>
 .lol {
   text-align: center;
