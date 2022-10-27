@@ -7,14 +7,13 @@
       <button @click="increment()" class="btn">+</button>
       <p>This data is {{ oddOrEven }}</p>
       <p>Counter Title</p>
-      <input v-model="counterTitle" vAutofocus />
+      <input v-model="counterTitle" />
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, reactive, computed, watch } from "vue";
-import { vAutofocus } from "@/directives/vAutofocus";
 
 const counterTitle = ref("Here is your Counter Title");
 const counterData = reactive({
