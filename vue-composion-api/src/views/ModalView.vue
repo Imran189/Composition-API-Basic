@@ -1,9 +1,12 @@
 <script setup>
 import { ref } from "vue";
 import Modal from "../components/Modal.vue";
+import modalDarkVue from "../components/modalDark.vue";
 
 const showModal = ref(false);
 const hideModal = ref(true);
+const showDarkModal = ref(false);
+
 const openModal = () => {
   showModal.value = !showModal.value;
 };
@@ -15,23 +18,28 @@ const closeModal = () => {
 <template>
   <div class="modalsView">
     <p>Modal Page</p>
+    <div class="dm">
+      <h3>Dark Modal</h3>
+      <input v-model="showDarkModal" type="checkbox" />
+    </div>
+    <br />
     <button @click="openModal()" v-if="showModal === false">ShowModal</button>
-    <Modal
+    <component
+      :is="showDarkModal ? modalDarkVue : Modal"
       v-if="showModal"
       title="This Modal With Props"
       showModal
       @hideModal="closeModal()"
-    ></Modal>
+    ></component>
   </div>
 </template>
 
-<style scoped>
+<style>
 .modalsView {
   text-align: center;
 }
 
-.modal {
-  background-color: beige;
-  padding: 10px;
+.dm {
+  display: inline-flex;
 }
 </style>

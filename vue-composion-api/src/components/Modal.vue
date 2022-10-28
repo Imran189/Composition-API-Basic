@@ -7,7 +7,7 @@
       natus recusandae quos consequuntur atque odio harum! Rem debitis
       consequuntur explicabo?
     </p>
-    <button @click="closeModal" v-if="showModal === true">closeModal</button>
+    <button @click="closeModal()" v-if="showModal === true">closeModal</button>
   </div>
 </template>
 <script setup>
@@ -27,3 +27,10 @@ const closeModal = () => {
   emit("hideModal");
 };
 </script>
+
+<style scoped>
+.modal {
+  background-color: beige;
+  padding: 10px;
+}
+</style>
