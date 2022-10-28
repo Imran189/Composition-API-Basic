@@ -7,10 +7,12 @@
       natus recusandae quos consequuntur atque odio harum! Rem debitis
       consequuntur explicabo?
     </p>
+    <p>User Name is: {{ userData.userName }}</p>
     <button @click="closeModal()" v-if="showModal === true">closeModal</button>
   </div>
 </template>
 <script setup>
+import { inject } from "vue";
 const props = defineProps({
   title: {
     type: String,
@@ -26,6 +28,8 @@ const emit = defineEmits(["hideModal"]);
 const closeModal = () => {
   emit("hideModal");
 };
+
+const userData = inject("userData");
 </script>
 
 <style scoped>
