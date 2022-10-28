@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import Modal from "../components/Modal.vue";
 
 const showModal = ref(false);
 const hideModal = ref(true);
@@ -14,17 +15,9 @@ const closeModal = () => {
 <template>
   <div class="modalsView">
     <p>Modal View</p>
-    <button @click="openModal()">ShowModal</button>
-    <div class="modal" v-if="showModal">
-      <h2>This is modal</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, eligendi
-        omnis? Quibusdam quasi earum perferendis in, eveniet perspiciatis,
-        placeat natus recusandae quos consequuntur atque odio harum! Rem debitis
-        consequuntur explicabo?
-      </p>
-      <button @click="closeModal()">closeModal</button>
-    </div>
+    <button @click="openModal()" v-if="showModal === false">ShowModal</button>
+    <Modal v-if="showModal"></Modal>
+    <button @click="closeModal()" v-if="showModal === true">closeModal</button>
   </div>
 </template>
 
