@@ -16,8 +16,12 @@ const closeModal = () => {
   <div class="modalsView">
     <p>Modal Page</p>
     <button @click="openModal()" v-if="showModal === false">ShowModal</button>
-    <Modal v-if="showModal" title="This Modal With Props"></Modal>
-    <button @click="closeModal()" v-if="showModal === true">closeModal</button>
+    <Modal
+      v-if="showModal"
+      title="This Modal With Props"
+      showModal
+      @hideModal="closeModal()"
+    ></Modal>
   </div>
 </template>
 

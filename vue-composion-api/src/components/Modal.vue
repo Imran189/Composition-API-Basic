@@ -7,6 +7,7 @@
       natus recusandae quos consequuntur atque odio harum! Rem debitis
       consequuntur explicabo?
     </p>
+    <button @click="closeModal" v-if="showModal === true">closeModal</button>
   </div>
 </template>
 <script setup>
@@ -15,5 +16,14 @@ const props = defineProps({
     type: String,
     default: "NO Title specified",
   },
+  showModal: {
+    type: Boolean,
+    default: "",
+  },
 });
+
+const emit = defineEmits(["hideModal"]);
+const closeModal = () => {
+  emit("hideModal");
+};
 </script>
