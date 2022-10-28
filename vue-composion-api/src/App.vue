@@ -1,4 +1,13 @@
-<script setup></script>
+<script setup>
+import { reactive, provide } from "vue";
+
+const userData = reactive({
+  name: "Danny",
+  userName: "UserDanny",
+});
+
+provide("userData", userData);
+</script>
 
 <template>
   <nav>
