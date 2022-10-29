@@ -2,7 +2,9 @@
 import { ref } from "vue";
 import Modal from "../components/Modal.vue";
 import modalDarkVue from "../components/modalDark.vue";
+import { useOnline } from "@vueuse/core";
 
+const online = useOnline();
 const showModal = ref(false);
 const hideModal = ref(true);
 const showDarkModal = ref(false);
@@ -17,6 +19,9 @@ const closeModal = () => {
 
 <template>
   <div class="modalsView">
+    <p v-if="online">Status: Online</p>
+    <p v-else-if="!online">Status: Offline</p>
+
     <p>Modal Page</p>
     <div class="dm">
       <h3>Dark Modal</h3>
