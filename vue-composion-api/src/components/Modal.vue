@@ -8,7 +8,7 @@
       consequuntur explicabo?
     </p>
     <p>User Name is: {{ userData.userName }}</p>
-    <button @click="closeModal()" v-if="showModal === true">closeModal</button>
+    <button @click="closeModal()" v-if="showModal == true">closeModal</button>
   </div>
 </template>
 <script setup>
