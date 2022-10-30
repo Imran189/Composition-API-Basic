@@ -14,6 +14,7 @@ provide("userData", userData);
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/about">About</RouterLink>
     <RouterLink to="/modalview">Modal View</RouterLink>
+    <RouterLink to="/pinia/state">Pinia State</RouterLink>
   </nav>
 
   <RouterView />
