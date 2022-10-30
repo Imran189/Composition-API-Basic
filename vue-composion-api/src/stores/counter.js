@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 
 export const useCounterStore = defineStore("counter", () => {
   const count = ref(1);
+  const title = ref(2);
 
   const doubleCount = computed(() => count.value * 2);
 

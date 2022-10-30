@@ -7,7 +7,7 @@ const counter = useCounterStore();
 <template>
   <div class="home">
     <div class="lol">
-      <p>Counter Title:</p>
+      <p>Counter Title:{{ counter.title }}</p>
       <button class="btn" @click="counter.increment()">+</button>
       <span class="counter">{{ counter.count }}</span>
       <button class="btn" @click="counter.decrement()">-</button>
