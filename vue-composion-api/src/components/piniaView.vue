@@ -11,7 +11,9 @@ const counter = useCounterStore();
       <button class="btn" @click="counter.increment()">+</button>
       <span class="counter">{{ counter.count }}</span>
       <button class="btn" @click="counter.decrement()">-</button>
-      <button class="btn" @click="counter.doubleCount">++</button><br />
+      <button class="btn" @click="counter.doubleCounter(2)">++</button><br />
+      <p>This number is {{ counter.evenOrOdd }}</p>
+      <p>This double number {{ counter.doubleCount }}</p>
       <input type="text" v-model="counter.title" />
     </div>
   </div>

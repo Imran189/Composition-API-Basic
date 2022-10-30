@@ -7,6 +7,15 @@ export const useCounterStore = defineStore("counter", () => {
 
   const doubleCount = computed(() => count.value * 2);
 
+  const evenOrOdd = computed(() => {
+    if (count.value % 2 == 0) {
+      return "even";
+    } else return "odd";
+  });
+
+  function doubleCounter(pera) {
+    count.value += pera;
+  }
   function increment() {
     count.value++;
   }
@@ -14,5 +23,13 @@ export const useCounterStore = defineStore("counter", () => {
   function decrement() {
     count.value--;
   }
-  return { count, title, doubleCount, increment, decrement };
+  return {
+    count,
+    title,
+    evenOrOdd,
+    doubleCount,
+    increment,
+    decrement,
+    doubleCounter,
+  };
 });
