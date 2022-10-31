@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import NoteView from "../components/Notes/NoteView.vue";
 
 const newNote = ref("");
 const newNoteRef = ref(null);
@@ -60,17 +61,6 @@ const addNote = () => {
         </div>
       </div>
     </div>
-
-    <div class="card mb-3" v-for="item in notes" :key="item.id">
-      <div class="card-content">
-        <div class="content">
-          {{ item.content }}
-        </div>
-      </div>
-      <footer class="card-footer">
-        <a href="#" class="card-footer-item">Edit</a>
-        <a href="#" class="card-footer-item">Delete</a>
-      </footer>
-    </div>
+    <NoteView v-for="item in notes" :key="item.id" :note="item"></NoteView>
   </div>
 </template>
