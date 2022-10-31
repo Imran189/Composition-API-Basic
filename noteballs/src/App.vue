@@ -6,8 +6,9 @@ import Navbar from "./components/layout/navbarView.vue";
 <template>
   <div>
     <Navbar />
-
-    <RouterView />
+    <div class="container is-max-desktop px-2 py-4">
+      <RouterView />
+    </div>
   </div>
 </template>
 

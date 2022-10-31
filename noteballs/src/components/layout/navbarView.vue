@@ -5,7 +5,7 @@
       role="navigation"
       aria-label="main navigation"
     >
-      <div class="container is-max-desktop">
+      <div class="container is-max-desktop px-2">
         <div class="navbar-brand">
           <a class="navbar-item is-size-4 is-family-monospace"> Noteballs</a>
           <a
@@ -32,7 +32,7 @@
             <router-link to="/" class="navbar-item is-active">
               Home
             </router-link>
-            <router-link to="/about" class="navbar-item"> Stats </router-link>
+            <router-link to="/stats" class="navbar-item"> Stats </router-link>
           </div>
         </div>
       </div>
