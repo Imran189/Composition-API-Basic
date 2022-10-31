@@ -50,4 +50,12 @@ const showNavbar = () => {
 };
 </script>
 
-<style></style>
+<style>
+@media (max-width: 1023px) {
+  .navbar-menu {
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+}
+</style>
