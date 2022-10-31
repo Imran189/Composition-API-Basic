@@ -1,7 +1,5 @@
 <script setup></script>
 
 <template>
-  <main>
-    <p>Just Home page</p>
-  </main>
+  <main class="container"><p>This is Home Page</p></main>
 </template>

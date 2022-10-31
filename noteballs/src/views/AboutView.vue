@@ -1,7 +1,10 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="about is-font">
+    <p>This is an about page</p>
+    <button class="bulma-control-mixin">My control</button>
   </div>
 </template>
 
-<style></style>
+<style>
+@import "bulma/css/bulma.min.css";
+</style>
