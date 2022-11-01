@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import NoteView from "../components/Notes/NoteView.vue";
+import NoteEditView from "../components/Notes/NoteEditView.vue";
 import { useNoteStore } from "../stores/counter.js";
 const useNotes = useNoteStore();
 const newNote = ref("");
