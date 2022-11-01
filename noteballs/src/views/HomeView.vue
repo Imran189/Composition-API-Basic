@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import NoteView from "../components/Notes/NoteView.vue";
-import NoteEditView from "../components/Notes/NoteEditView.vue";
+import NoteFormView from "../components/Notes/NoteFormView.vue";
 import { useNoteStore } from "../stores/counter.js";
 const useNotes = useNoteStore();
 const newNote = ref("");
@@ -21,29 +21,13 @@ const deleteItem = (id) => {
 
 <template>
   <div class="notes py-3">
-    <div class="card has-background-success-dark p-4 mb-5">
-      <div class="field">
-        <div class="control">
-          <textarea
-            v-model="newNote"
-            class="textarea"
-            placeholder="Add s new Note"
-            ref="newNoteRef"
-          />
-        </div>
-      </div>
-      <div class="field is-grouped is-grouped-right">
-        <div class="control">
-          <button
-            v-show="newNote"
-            @click="addNote()"
-            class="button is-link has-background-success"
-          >
-            Add New Note
-          </button>
-        </div>
-      </div>
-    </div>
+    <NoteFormView>
+      <template #buttons>
+        <button class="button is-link has-background-success">
+          Add New Note
+        </button>
+      </template>
+    </NoteFormView>
     <NoteView
       v-for="item in useNotes.notes"
       :key="item.id"
