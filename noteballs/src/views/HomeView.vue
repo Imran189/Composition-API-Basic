@@ -10,20 +10,26 @@ const newNoteRef = ref(null);
 const addNote = () => {
   useNotes.addNoteState(newNote.value);
   newNote.value = "";
-  newNoteRef.value.focus();
 };
-const deleteItem = (id) => {
-  notes.value = notes.value.filter((note) => {
-    return note.id !== id;
-  });
-};
+
+// const deleteItem = (id) => {
+//   notes.value = notes.value.filter((note) => {
+//     return note.id !== id;
+//   });
+//};
+
+const addEditNoteRef = ref(null);
 </script>
 
 <template>
   <div class="notes py-3">
-    <NoteFormView v-model="newNote">
+    <NoteFormView v-model="newNote" ref="addEditNoteRef">
       <template #buttons>
-        <button v-show="newNote" class="button is-link has-background-success">
+        <button
+          v-show="newNote"
+          @click.prevent="addNote"
+          class="button is-link has-background-success"
+        >
           Add New Note
         </button>
       </template>
@@ -32,7 +38,6 @@ const deleteItem = (id) => {
       v-for="item in useNotes.notes"
       :key="item.id"
       :note="item"
-      @deleteItem="deleteItem"
     ></NoteView>
   </div>
 </template>
