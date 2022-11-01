@@ -5,8 +5,7 @@ import NoteFormView from "../components/Notes/NoteFormView.vue";
 import { useNoteStore } from "../stores/counter.js";
 const useNotes = useNoteStore();
 const newNote = ref("");
-const newNoteRef = ref(null);
-
+const addEditNoteRef = ref(null);
 const addNote = () => {
   useNotes.addNoteState(newNote.value);
   newNote.value = "";
@@ -17,8 +16,6 @@ const addNote = () => {
 //     return note.id !== id;
 //   });
 //};
-
-const addEditNoteRef = ref(null);
 </script>
 
 <template>
