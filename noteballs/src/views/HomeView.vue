@@ -21,9 +21,9 @@ const deleteItem = (id) => {
 
 <template>
   <div class="notes py-3">
-    <NoteFormView>
+    <NoteFormView v-model="newNote">
       <template #buttons>
-        <button class="button is-link has-background-success">
+        <button v-show="newNote" class="button is-link has-background-success">
           Add New Note
         </button>
       </template>
