@@ -1,36 +1,13 @@
 <script setup>
 import { ref } from "vue";
 import NoteView from "../components/Notes/NoteView.vue";
-
+import { useNoteStore } from "../stores/counter.js";
+const useNotes = useNoteStore();
 const newNote = ref("");
 const newNoteRef = ref(null);
-const notes = ref([
-  {
-    id: "id1",
-    content:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi veritatis odio eius sed atque, esse ullam in distinctio assumenda beatae dolore rerum sequi saepe repellat perspiciatis quos optioeveniet facere",
-  },
-  {
-    id: "id2",
-    content:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi veritatis odio eius sed atque, esse ullam in distinctio assumenda beatae dolore rerum sequi saepe repellat perspiciatis quos optioeveniet facere",
-  },
-  {
-    id: "id3",
-    content:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi veritatis odio eius sed atque, esse ullam in distinctio assumenda beatae dolore rerum sequi saepe repellat perspiciatis quos optioeveniet facere",
-  },
-]);
 
 const addNote = () => {
-  let currentDate = new Date().getTime(),
-    id = currentDate.toString();
-  let note = {
-    id: id,
-    content: newNote.value,
-  };
-
-  notes.value.unshift(note);
+  useNotes.addNoteState(newNote.value);
   newNote.value = "";
   newNoteRef.value.focus();
 };
@@ -67,7 +44,7 @@ const deleteItem = (id) => {
       </div>
     </div>
     <NoteView
-      v-for="item in notes"
+      v-for="item in useNotes.notes"
       :key="item.id"
       :note="item"
       @deleteItem="deleteItem"
