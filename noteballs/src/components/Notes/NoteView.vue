@@ -1,7 +1,11 @@
 <script setup>
+import { useRouter } from "vue-router";
 import { computed } from "vue";
-
+import { useNoteStore } from "@/stores/counter.js";
+const useNotes = useNoteStore();
+const router = useRouter();
 const emit = defineEmits(["deleteItem"]);
+
 const props = defineProps({
   note: {
     type: Object,
@@ -18,6 +22,10 @@ const characterLength = computed(() => {
 const deleteHandler = () => {
   emit("deleteItem", props.note.id);
 };
+
+const editPage = (id) => {
+  router.push("/edit/" + id);
+};
 </script>
 
 <template>
@@ -31,8 +39,12 @@ const deleteHandler = () => {
       </div>
     </div>
     <footer class="card-footer">
-      <a href="#" class="card-footer-item">Edit</a>
-      <a @click.prevent="deleteHandler()" class="card-footer-item">Delete</a>
+      <a @click="editPage(note.id)" class="card-footer-item">Edit</a>
+      <a
+        @click.prevent="useNotes.deleteNoteState(note.id)"
+        class="card-footer-item"
+        >Delete</a
+      >
     </footer>
   </div>
 </template>

@@ -38,5 +38,18 @@ export const useNoteStore = defineStore("counter", () => {
     notes.value.unshift(note);
   }
 
-  return { count, notes, doubleCount, increment, addNoteState };
+  function deleteNoteState(id) {
+    notes.value = notes.value.filter((note) => {
+      return note.id !== id;
+    });
+  }
+
+  return {
+    count,
+    notes,
+    doubleCount,
+    increment,
+    addNoteState,
+    deleteNoteState,
+  };
 });
