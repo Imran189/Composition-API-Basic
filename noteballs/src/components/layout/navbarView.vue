@@ -1,3 +1,24 @@
+<script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const homePage = () => {
+  router.push("/");
+  showNav.value = !showNav.value;
+};
+
+const statPage = () => {
+  router.push("/stats");
+  showNavbar();
+};
+
+const showNav = ref(false);
+
+const showNavbar = () => {
+  showNav.value = !showNav.value;
+};
+</script>
 <template>
   <div>
     <nav
@@ -29,26 +50,20 @@
           :class="{ 'is-active': showNav }"
         >
           <div class="navbar-end">
-            <router-link to="/" class="navbar-item is-active">
-              Home
+            <a @click="homePage()" class="navbar-item is-active"> Home </a>
+            <router-link
+              to="/stats"
+              @click="showNav = false"
+              class="navbar-item"
+            >
+              Stats
             </router-link>
-            <router-link to="/stats" class="navbar-item"> Stats </router-link>
           </div>
         </div>
       </div>
     </nav>
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-
-const showNav = ref(false);
-
-const showNavbar = () => {
-  showNav.value = !showNav.value;
-};
-</script>
 
 <style>
 @media (max-width: 1023px) {

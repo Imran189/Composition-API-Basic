@@ -51,10 +51,24 @@ export const useNoteStore = defineStore("counter", () => {
     };
   });
 
+  const totalNotesCount = computed(() => {
+    return notes.value.length;
+  });
+
+  const totalNotesCharacter = computed(() => {
+    let count = 0;
+    notes.value.forEach((note) => {
+      count += note.content.length;
+    });
+    return count;
+  });
+
   return {
     count,
     notes,
     getNoteContent,
+    totalNotesCount,
+    totalNotesCharacter,
     addNoteState,
     deleteNoteState,
     updateNote,
