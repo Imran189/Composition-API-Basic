@@ -21,12 +21,6 @@ export const useNoteStore = defineStore("counter", () => {
     },
   ]);
 
-  const doubleCount = computed(() => count.value * 2);
-
-  function increment() {
-    count.value++;
-  }
-
   function addNoteState(newNote) {
     let currentDate = new Date().getTime(),
       id = currentDate.toString();
@@ -44,12 +38,25 @@ export const useNoteStore = defineStore("counter", () => {
     });
   }
 
+  function updateNote(id, content) {
+    let index = notes.value.findIndex((note) => note.id === id);
+    notes.value[index].content = content;
+  }
+
+  const getNoteContent = computed(() => {
+    return (id) => {
+      return notes.value.filter((note) => {
+        return note.id === id;
+      })[0].content;
+    };
+  });
+
   return {
     count,
     notes,
-    doubleCount,
-    increment,
+    getNoteContent,
     addNoteState,
     deleteNoteState,
+    updateNote,
   };
 });
